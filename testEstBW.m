@@ -1,0 +1,30 @@
+%% Testing script for estimating bandwidth requirements for generic
+%% streaming and IPB streaming
+% testEstBW.m
+% chenw@cmu.edu
+
+%% Logistics
+clear all;
+close all;
+clc;
+symbols = {'-k', '-xr', '-.b', '-+g', '-+c', '--m', '-og', '-*y', ':k'};
+vidNames = {'cloudAtlas', 'hungerGame', 'hobbit', 'ted', 'darkKnight', 'skyFall', 'avatar', 'amLegend', 'brave', 'simpsons'};
+
+for vidInd = 1 : length(vidNames)
+    disp('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+    vidName = vidNames{vidInd};  
+    estBW(vidName);
+    estIPBbw(vidName);
+end
+
+% vidName = 'brave';
+% 
+% vidBitrate = load(['./Mat/' vidName '-bitrates.mat']);
+% totalBitrate = vidBitrate
+% vidBW = load(['./Mat/' vidName '-sortBW.mat']);
+% 
+% vidCap = [IX vidBW.sortC];
+% vidBW2 = sortrows(vidCap, 1);
+% 
+% figure(1), hold on;
+% plot(vidBitrate.)
